@@ -1,0 +1,16 @@
+{
+    "name": "toddmcbrearty/frametools",
+    "description": "",
+    "authors": [
+        {
+            "name": "Todd Mc Brearty",
+            "email": "todd.mcbrearty@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Toddmcbrearty\\Debug": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
