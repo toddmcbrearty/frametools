@@ -2,19 +2,36 @@
 
 class Frametools
 {
-	public static function d( $input, $die = TRUE )
+	public function d( $var = '', $die = TRUE, $pre = TRUE, $print = FALSE )
 	{
-		echo "<pre>";
-		try 
-		{
-			var_dump( $input );
-		}
-		catch ( Exception $e )
-		{
-			echo $e->message();
-		}
-		echo "</pre>";
 
+		if ( $var === '' )
+			$var = time();
+		
+		if ( gettype($var) == 'string' && ( gettype($var) == 'string' && self::isJson( $var ) ) )
+		{
+			echo json_encode( $var );
+		}
+		else
+		{	
+			if ( $pre )
+				echo "<pre>";
+
+			if ( $print )
+				print_r( $var );
+			else
+				var_dump( $var );
+
+			if ( $pre )
+				echo "</pre>";
+
+		}
+	
 		if ( $die ) die();
+	}
+
+	public function isJson($string) {
+		json_decode($string);
+		return (json_last_error() == JSON_ERROR_NONE);
 	}
 }
