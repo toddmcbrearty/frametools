@@ -18,7 +18,10 @@ class FrametoolsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['frametools'] = $this->app->share(function($app)
+        {
+            return new Frametools;
+        });
 	}
 
 	/**
@@ -28,7 +31,7 @@ class FrametoolsServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('frametools');
 	}
 
 }
